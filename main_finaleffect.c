@@ -1,12 +1,13 @@
 #include "raylib.h"
 #define NULL ((void*)0)
 #define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 450
+#define SCREEN_HEIGHT 500
 
-int main(void) {
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "test Shader");
+int main(int argc, char** argv) {
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "vga shader");
 
-    Image image = LoadImage("img2.png"); // Replace with your image path
+    Image image = LoadImage(argv[1]);
+    SetWindowSize(image.width, image.height);
     Texture2D texture = LoadTextureFromImage(image);
     UnloadImage(image);
 
