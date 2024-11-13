@@ -1,9 +1,15 @@
-#include "raylib.h"
-#define NULL ((void*)0)
+#include "include/raylib.h"
+#include <stdio.h>
+
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 500
 
 int main(int argc, char** argv) {
+    if (argc != 2) {
+        puts("Usage: program <image_path>");
+        return 1;
+    }
+
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "vga shader");
 
     Image image = LoadImage(argv[1]);
