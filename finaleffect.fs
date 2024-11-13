@@ -6,7 +6,7 @@ uniform vec2 resolution;       // Resolution of the image
 in vec2 fragTexCoord;
 out vec4 fragColor;
 
-const float pixelSize = 2.0;  // Hardcoded
+const float pixelSize = 2.0;  // 2x pizel size
 const float MIN_DISTANCE = 0.15; // Minimum distance threshold for color matching
 
 // VGA color palette (16 colors)
@@ -46,8 +46,9 @@ vec3 FindClosestVGAColor(vec3 color) {
 
 void main()
 {
-    vec2 coord = vec2(floor(fragTexCoord.x * resolution.x / pixelSize) * pixelSize / resolution.x,
-                      floor(fragTexCoord.y * resolution.y / pixelSize) * pixelSize / resolution.y);
+    vec2 coord = vec2(
+    floor(fragTexCoord.x * resolution.x / pixelSize) * pixelSize / resolution.x,
+    floor(fragTexCoord.y * resolution.y / pixelSize) * pixelSize / resolution.y);
 
     vec3 texColor = texture(texture0, coord).rgb;
 
